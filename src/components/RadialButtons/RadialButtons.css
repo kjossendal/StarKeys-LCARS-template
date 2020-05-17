@@ -1,0 +1,21 @@
+#pie {
+  transform: rotate(45deg);
+}
+.frag {
+  fill: #FFA500;
+  stroke: var(--black);
+  transition: fill 0.3s ;
+}
+.frag:active {
+  opacity: 0.8;
+}
+.center {
+  fill: var(--black);
+}
+a:hover .frag {
+  fill: #FFC722;
+}
+text {
+  font-size: 17px;
+  fill: #FFFFFF;
+}

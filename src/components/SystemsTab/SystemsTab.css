@@ -1,0 +1,21 @@
+.systems_tab_container {
+  display: flex;
+  height: 100%;
+}
+.systems_tab_left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 45%;
+}
+.systems_tab_right {
+  width: 55%;
+  height:100%;
+}
+.systems_tab_right_bar {
+  background-color: var(--yellow);
+  width: 19.3%;
+  height:90%;
+  float: right;
+}

@@ -1,13 +1,40 @@
+@font-face {
+  font-family: 'Context_Ultra_Condensed';
+  src: local('Context_Ultra_Condensed'), url('./fonts/Context_Ultra_Condensed.ttf') format('truetype');
+}
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: 'Context_Ultra_Condensed', 
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Scale to browser window size */
+html, body, #root {
+  position:fixed;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+}
+
+html {
+  background-color: #282c34;
+  /* defines what 1 rem is. 1rem == 10px; */
+  font-size: 62.5%;
+      /* background: url(../images/cockpit-1b.jpg) no-repeat center center fixed; */
+    /* -webkit-background-size: cover; */
+    /* -moz-background-size: cover; */
+    /* -o-background-size: cover; */
+    /* background-size: cover; */
+}
+
+:root {
+  --yellow: rgba(250, 200, 50, 1);
+  --orange: rgba(224, 171, 117, 1);
+  --black: rgba(40, 44, 52, 1);
+  --purple: rgba(150, 160, 251, 1);
+  --cream: rgba(248, 243, 199, 1);
+  --blue: rgba(78, 109, 251, 1);
 }
