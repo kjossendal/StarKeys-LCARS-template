@@ -1,11 +1,14 @@
 import React from 'react'
+import ButtonRounded from '../ButtonRounded/ButtonRounded'
 
-const CommsTab = () => {
+const CommsTab = ({ onClick }) => {
   return (
     <div className="tab_container">
-      <div className="tab_header">
-        COMMS TAB
-      </div>
+      <ButtonRounded
+        onClick={() => onClick = ('macro:8')}
+        text="OPEN CHANNEL"
+        color={'cream'}
+      />
     </div>
   )
 }

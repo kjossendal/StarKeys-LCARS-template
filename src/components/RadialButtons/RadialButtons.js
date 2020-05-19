@@ -1,11 +1,12 @@
 import React from 'react'
 import './RadialButtons.css'
 
-const RadialButtons = () => {
+const RadialButtons = ({ buttonData, id, onClick }) => {
 
-  const handleFragClick = (e) => {
-    console.log("EE", e.target.getAttribute('name'))
-  }
+  const handleFragClick = React.useCallback((macrostring) => {
+    onClick(macrostring)
+    // console.log("EE", e.target.getAttribute('name'))
+  }, [onClick])
 
   React.useEffect(() => {
     const createPie = (cx, cy, r, slices) => {
@@ -15,13 +16,19 @@ const RadialButtons = () => {
         toCoordX, toCoordY,
         path, d;
 
-      var parser = new DOMParser();
-      var el = parser.parseFromString(`<circle id="center_pie" cx="55" cy="55" r="20" stroke="black" strokeWidth="3" fill="red" />`, "text/html");
-      var element = el.getElementById("center_pie");
-      document.getElementById('pie').appendChild(element);
+      // var parser = new DOMParser();
+      // var el = parser.parseFromString(`<circle id="center_pie" cx="55" cy="55" r="20" stroke="black" strokeWidth="3" fill="red" />`, "text/html");
+      // var element = el.getElementById("center_pie");
+      // document.getElementById('pie').appendChild(element);
 
-      for (var i = 0; i < slices; i++) {
+      // for (var i = 0; i < slices; i++) {
+      buttonData.forEach((btn, i) => {
+        // create container
+        const fragment = document.createElementNS("http://www.w3.org/2000/svg", 'g')
+
+        // create pie slice element
         path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+        // do all the maths to draw slice
         fromAngle = i * 360 / slices;
         toAngle = (i + 1) * 360 / slices;
         //console.log(fromAngle + ' ' + toAngle);
@@ -29,30 +36,55 @@ const RadialButtons = () => {
         fromCoordY = cy + (r * Math.sin(fromAngle * Math.PI / 180));
         toCoordX = cx + (r * Math.cos(toAngle * Math.PI / 180));
         toCoordY = cy + (r * Math.sin(toAngle * Math.PI / 180));
-        //console.log(fromCoord + ' ' + toCoord);
         d = 'M' + cx + ',' + cy + ' L' + fromCoordX + ',' + fromCoordY + ' A' + r + ',' + r + ' 0 0,1 ' + toCoordX + ',' + toCoordY + 'z';
-        console.log(d);
+        // console.log(d);
+        // build path element
         path.setAttributeNS(null, "d", d);
         path.setAttribute('name', i)
         path.classList.add('frag')
-        path.onclick = handleFragClick
-        document.getElementById('pie').appendChild(path);
-      }
+        path.onclick = () => handleFragClick(buttonData[i].macro)
+
+        fragment.appendChild(path)
+        document.getElementById(id).appendChild(fragment);
+      })
 
       // add center black circle
+      const fragment = document.createElementNS("http://www.w3.org/2000/svg", 'g')
       const center = document.createElementNS('http://www.w3.org/2000/svg', "circle");
       center.setAttributeNS(null, "cx", 55);
       center.setAttributeNS(null, "cy", 55);
       center.setAttributeNS(null, 'r', 20)
       center.classList.add('center')
-      document.getElementById('pie').appendChild(center)
+      // add text to center circle
+      const text = document.createElementNS("http://www.w3.org/2000/svg", 'text')
+      // text.setAttributeNS(null, 'textAnchor', 'middle')
+      // place text based on rotation compensation
+      if (slices === 4) {
+        text.setAttributeNS(null, 'x', '-11%')
+        text.setAttributeNS(null, 'y', '-65%')
+        text.setAttributeNS(null, "transform", "rotate(135)")
+      }
+      if (slices === 3) {
+        text.setAttributeNS(null, 'x', '-29%')
+        text.setAttributeNS(null, 'y', '-63%')
+        text.setAttributeNS(null, "transform", "rotate(149)")
+        text.onclick = () => handleFragClick('macro:13')
+        text.innerHTML = 'RESET'
+      }
+      text.setAttributeNS(null, "name", "center")
+      text.classList.add('center_text')
+
+      fragment.appendChild(center)
+      fragment.appendChild(text)
+
+      document.getElementById(id).appendChild(fragment)
     }
 
-    createPie(55, 55, 50, 4);
-  }, [])
+    createPie(55, 55, 50, buttonData.length);
+  }, [buttonData, buttonData.length, handleFragClick, id])
 
   return (
-    <svg viewBox="0 0 110 110" id="pie" shapeRendering="geometricPrecision"></svg>
+    <svg viewBox="0 0 110 110" id={id} shapeRendering="geometricPrecision"></svg>
   )
   // return (
   //   <svg width="300" height="300" viewBox="-2 -2 202 203" shapeRendering="geometricPrecision">

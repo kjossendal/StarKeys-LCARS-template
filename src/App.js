@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
-import './App.css';
-import { ButtonRounded } from './components';
-import Buttons from './buttons'
-import ButtonSquared from './components/ButtonSquared/ButtonSquared';
+
+import { ButtonRounded, ButtonSquared, AppSvg } from './components';
 import SystemsTab from './components/SystemsTab/SystemsTab';
 import WeaponsTab from './components/WeaponsTab/WeaponsTab';
 import CommsTab from './components/CommsTab/CommsTab';
+import { conn } from './client2Server';
+import Buttons from './buttons'
+import './App.css';
+import Demo from './components/Demo';
+import BottomBar from './components/BottomBar';
+import MiningTab from './components/MiningTab/MiningTab';
 
 const App = () => {
   const [hostip, setHostip] = useState('192.168.50.148');
@@ -19,62 +23,33 @@ const App = () => {
     setFileid(e.target.value);
   };
 
-  const Client2Server = (macrostr) => {
-    console.log("PRESS", macrostr)
-    if (hostip.trim() === "") {
-      alert("Host IP is required. Please provide the value shown when starting the StarKeys-vMFD Server on the gaming PC.");
-      return;
-    }
-    if (fileid.trim() === "") {
-      alert("File ID is required. Please provide the value shown when starting the StarKeys-vMFD Server on the gaming PC.");
-      return;
-    }
-    if (hostip != null && fileid != null) {
-      if ("WebSocket" in window) {
-        //alert("WebSocket is supported by your Browser!");
-
-        // Let us open a web socket
-        var ws = new WebSocket("ws://" + hostip + "/echo");
-
-        ws.onopen = function () {
-
-          // Web Socket is connected, send data using send()
-          ws.send("fileid:" + fileid + "_" + macrostr);
-          // alert("Message is sent...");
-        };
-
-        ws.onmessage = function (evt) {
-          const received_msg = evt.data;
-          // alert("Message is received...");
-        };
-
-        ws.onclose = function () {
-          // websocket is closed.
-          //alert("Connection is closed...");
-        };
-      } else {
-        // The browser doesn't support WebSocket
-        alert("WebSocket NOT supported by your Browser!");
-      }
-    }
-  }
-
   return (
     <div className="App">
-      <div className="bar bar_top">
-        <div className="bar_top_left">
-          <label>Host IP: </label>
-          <input
-            type="text"
-            name="hostip"
-            onChange={e => handleIPChange(e)}
-            value={hostip}
-          />
-          <label>File ID: </label>
-          <input type="text" name="fileid" onChange={e => handleFileIDChange(e)} />
+      <div id="main_top">
+        <div id="elbow_left_top_main">
+          <AppSvg name="icon_elbow_left_top" height={90} width={300} color="var(--orange)" />
+          <div className="bar_top_left">
+            <label>Host IP: </label>
+            <input
+              type="text"
+              name="hostip"
+              onChange={e => handleIPChange(e)}
+              value={hostip}
+            />
+            <label>File ID: </label>
+            <input
+              type="text"
+              name="fileid"
+              onChange={e => handleFileIDChange(e)}
+              value={fileid}
+            />
+          </div>
         </div>
-        <div className="bar_top_right">
-          LCARS-SC
+        <div id="block_main">
+        </div>
+        <div id="headline_main">LCARS-SC</div>
+        <div id="endcap_right_main">
+          <AppSvg name="icon_endcap_right" height={30} width={45} color="var(--cream)" />
         </div>
       </div>
 
@@ -83,20 +58,20 @@ const App = () => {
           <div className="box_left_top">
             <ButtonSquared
               onClick={() => setTab(0)}
-              text="SYSTEMS STATUS"
+              text="SYSTEMS"
               active={tab === 0}
               color="orange"
             />
             <ButtonSquared
-              onClick={() => setTab(1)}
-              text="WEAPONS CONTROL"
-              active={tab === 1}
+              onClick={() => setTab(2)}
+              text="MINING"
+              active={tab === 2}
               color="orange"
             />
             <ButtonSquared
-              onClick={() => setTab(2)}
-              text="DEFENSIVE SYSTEMS"
-              active={tab === 2}
+              onClick={() => setTab(1)}
+              text="NAVIGATION"
+              active={tab === 1}
               color="orange"
             />
             <ButtonSquared
@@ -109,40 +84,51 @@ const App = () => {
           <div className="box_left_bottom">
             <ButtonSquared
               onClick={() => setTab(4)}
-              text="COMMS SYSTEMS"
+              text="COMMS"
+              active={tab === 4}
               color="cream"
             />
             <ButtonSquared
               onClick={() => setTab(5)}
-              text="MISC"
+              text="EMOTES"
+              active={tab === 5}
               color="cream"
             />
-            <div style={{ height: '100%', backgroundColor: 'var(--yellow)' }}></div>
-            <div style={{ height: '100%', backgroundColor: 'var(--yellow)' }}></div>
           </div>
         </div>
         <div className="box_right">
-          {tab === 0 && <SystemsTab onClick={(macrostr) => Client2Server(macrostr)} />}
+          {tab === 0 && <SystemsTab onClick={(macrostr) => conn(hostip, fileid, macrostr)} />}
           {tab === 1 && <WeaponsTab />}
-          {tab === 2 && <SystemsTab />}
+          {tab === 2 && <MiningTab />}
           {tab === 3 && (
             <div className="grid">
               {Object.entries(Buttons).map((btn, idx) => {
                 return <ButtonRounded
                   key={idx}
-                  onClick={() => Client2Server(btn[0])}
+                  onClick={() => conn(hostip, fileid, btn[0])}
                   text={btn[1].description}
                   color={idx % 2 === 0 ? 'purple' : 'cream'}
                 />
               })}
             </div>
           )}
-          {tab === 4 && <CommsTab />}
+          {tab === 4 && <CommsTab onClick={(macrostr) => conn(hostip, fileid, macrostr)} />}
         </div>
       </div>
 
-      <div className="bar bar_bottom">
+      <div id="main_bottom">
+        <div id="elbow_left_bottom_main">
+          <AppSvg name="icon_elbow_left_bottom" height={'100%'} width={300} color="var(--yellow)" />
+        </div>
+        <div id="block_main_bottom">
+        </div>
+        <div id="endcap_right_main_bottom">
+          <AppSvg name="icon_endcap_right" height={30} width={45} color="var(--yellow)" />
+        </div>
+
       </div>
+
+      <BottomBar onClick={(macrostr) => conn(hostip, fileid, macrostr)} />
 
       <svg width="0" height="0">
         <defs>
@@ -151,14 +137,14 @@ const App = () => {
               d="M 0,1
                   C 0 0, 0.07 0, .1 0
                   L 1,0
-                  L 1,.7
-                  C .3 .7, .2 .7, .20 1
+                  L 1,.5
+                  C .2 .5, .2 .5, .20 1
 									Z"
             />
           </clipPath>
         </defs>
       </svg>
-    </div>
+    </div >
   );
 }
 

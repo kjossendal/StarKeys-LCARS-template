@@ -1,0 +1,23 @@
+.bottom_bar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-evenly;
+  margin-top: 1rem;
+  font-size: 3rem;
+}
+.bottom_bar_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--yellow);
+  flex-grow: 1;
+  height: 100%;
+  margin-left: 0.2rem;
+}
+.bottom_bar_button:nth-last-child(2) {
+  margin-right: 0.2rem;
+}
+.bottom_bar_button:active {
+  opacity: 0.8;
+}

@@ -1,0 +1,24 @@
+<svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <symbol id="icon_button_square" viewBox="0 0 80 32">
+      <title>button_1</title>
+      <path d="M0 0h80v32h-80z"></path>
+    </symbol>
+    <symbol id="icon_elbow_left_bottom" viewBox="0 0 107 32">
+      <title>elbow_left_bottom</title>
+      <path d="M53.333 32h-26.667c-14.727 0-26.667-11.872-26.667-26.521v-5.479h53.333v8.132c0.026 7.297 5.947 13.202 13.248 13.202 0.030 0 0.060-0 0.090-0l-0.005 0h40v10.667z"></path>
+    </symbol>
+    <symbol id="icon_elbow_left_top" viewBox="0 0 107 32">
+      <title>elbow_left_top</title>
+      <path  d="M53.333 0h-26.667c-14.727 0-26.667 11.872-26.667 26.521v5.479h53.333v-8.132c0.026-7.297 5.947-13.202 13.248-13.202 0.030 0 0.060 0 0.090 0l-0.005-0h40v-10.667z"></path>
+    </symbol>
+    <symbol id="icon_endcap_left" viewBox="0 0 48 32">
+      <title>endcap_left</title>
+      <path d="M16 32h32v-32h-32c-8.837 0-16 7.163-16 16s7.163 16 16 16v0z"></path>
+    </symbol>
+    <symbol id="icon_endcap_right" viewBox="0 0 48 32">
+      <title>endcap_right</title>
+      <path d="M32 0h-32v32h32c8.837 0 16-7.163 16-16s-7.163-16-16-16v0z"></path>
+    </symbol>
+  </defs>
+</svg>

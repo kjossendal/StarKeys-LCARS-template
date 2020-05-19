@@ -1,16 +1,22 @@
-#pie {
-  transform: rotate(45deg);
+#shields {
+  transform: rotate(-135deg);
+}
+#power {
+  transform: rotate(-149.7deg);
 }
 .frag {
   fill: #FFA500;
   stroke: var(--black);
   transition: fill 0.3s ;
 }
-.frag:active {
+.frag:active, .center_text:active {
   opacity: 0.8;
 }
 .center {
   fill: var(--black);
+}
+.center_text {
+  fill: #FFA500;
 }
 a:hover .frag {
   fill: #FFC722;

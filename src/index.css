@@ -23,16 +23,12 @@ html {
   background-color: #282c34;
   /* defines what 1 rem is. 1rem == 10px; */
   font-size: 62.5%;
-      /* background: url(../images/cockpit-1b.jpg) no-repeat center center fixed; */
-    /* -webkit-background-size: cover; */
-    /* -moz-background-size: cover; */
-    /* -o-background-size: cover; */
-    /* background-size: cover; */
 }
 
 :root {
   --yellow: rgba(250, 200, 50, 1);
-  --orange: rgba(224, 171, 117, 1);
+  --tan: rgba(224, 171, 117, 1);
+  --orange: rgba(255, 153, 0, 1);
   --black: rgba(40, 44, 52, 1);
   --purple: rgba(150, 160, 251, 1);
   --cream: rgba(248, 243, 199, 1);

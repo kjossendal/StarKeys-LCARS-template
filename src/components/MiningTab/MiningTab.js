@@ -1,11 +1,11 @@
 import React from 'react'
 
-const WeaponsTab = () => {
+const MiningTab = () => {
   return (
     <div className="tab_container">
-      WEAPONS TAB
+      MINING TAB
     </div>
   )
 }
 
-export default WeaponsTab
+export default MiningTab
