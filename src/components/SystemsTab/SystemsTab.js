@@ -1,7 +1,7 @@
 import React from 'react'
-import ButtonRounded from '../ButtonRounded/ButtonRounded'
-import './SystemsTab.css'
 import RadialButtons from '../RadialButtons/RadialButtons'
+import './SystemsTab.css'
+import ButtonRounded from '../ButtonRounded/ButtonRounded'
 
 const SystemsTab = ({ onClick }) => {
   return (
@@ -22,18 +22,17 @@ const SystemsTab = ({ onClick }) => {
                 onClick={onClick}
                 buttonData={[
                   {
-                    macro: 'macro:17',
-                    text: 'ENGINES UP'
+                    macro: 'macro:4',
+                    text: 'ENGINES'
                   },
                   {
-                    macro: 'macro:18',
-                    text: 'SHIELDS UP'
+                    macro: 'macro:5',
+                    text: 'SHIELDS'
                   },
                   {
-                    macro: 'macro:16',
+                    macro: 'macro:6',
                     text: 'WEAPONS UP'
                   },
-
                 ]} />
             </div>
           </div>
@@ -54,19 +53,19 @@ const SystemsTab = ({ onClick }) => {
                   onClick={onClick}
                   buttonData={[
                     {
-                      macro: 'macro:14',
+                      macro: 'macro:35',
                       text: 'SHIELDS FRONT'
                     },
                     {
-                      macro: 'macro:20',
+                      macro: 'macro:33',
                       text: 'SHIELDS RIGHT'
                     },
                     {
-                      macro: 'macro:15',
+                      macro: 'macro:30',
                       text: 'SHIELDS REAR'
                     },
                     {
-                      macro: 'macro:19',
+                      macro: 'macro:31',
                       text: 'SHIELDS LEFT'
                     },
                   ]} />
@@ -74,27 +73,44 @@ const SystemsTab = ({ onClick }) => {
             </div>
           </div>
         </div>
-        {/* <div className="grid">
-          <ButtonRounded
-            onClick={() => onClick('macro:9')}
-            text="TOGGLE COUNTERMEASURE"
-            color="purple"
-          />
-          <div style={{ height: '0.5rem' }}></div>
-          <ButtonRounded
-            onClick={() => onClick('macro:10')}
-            text="LAUNCH COUNTERMEASURE"
-            color="purple"
-          />
-          <div style={{ height: '0.5rem' }}></div>
-          <ButtonRounded
-            onClick={() => onClick('macro:9')}
-            text="GIMBALL ASSIST"
-            color="purple"
-          />
-        </div> */}
+        <div style={{
+          position: 'absolute',
+          bottom: '-3.5rem', left: 0, right: 0,
+          marginTop: '2rem', display: 'flex',
+          flexWrap: 'wrap',
+          justifyContent: 'center'
+        }}>
+          <div style={{ flex: '0 0 calc(33.33% - 2rem)' }}>
+            <ButtonRounded
+              onClick={() => onClick('macro:14')}
+              text="POWER"
+              color="purple"
+            />
+          </div>
+          <div style={{ flex: '0 0 calc(33.33% - 2rem)' }}>
+            <ButtonRounded
+              onClick={() => onClick('macro:15')}
+              text="ENGINES"
+              color="purple"
+            />
+          </div>
+          <div style={{ flex: '0 0 calc(33.33% - 2rem)' }}>
+            <ButtonRounded
+              onClick={() => onClick('macro:16')}
+              text="SHIELDS"
+              color="purple"
+            />
+          </div>
+          <div style={{ flex: '0 0 calc(33.33% - 2rem)' }}>
+            <ButtonRounded
+              onClick={() => onClick('macro:17')}
+              text="WEAPONS"
+              color="purple"
+            />
+          </div>
+        </div>
       </div>
-    </div>
+    </div >
   )
 }
 

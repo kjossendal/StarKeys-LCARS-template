@@ -1,6 +1,7 @@
 .systems_tab_container {
   display: flex;
   flex-direction: column;
+  position: relative;
   height: 100%;
 }
 .systems_tab_top {
@@ -29,7 +30,7 @@
   background-color: var(--blue);
   color: var(--cream);
   width: 90%;
-  padding: 0.5rem;
+  padding: 0.4rem;
   margin-left: auto;
   text-align: left;
   margin-bottom: 2rem;
@@ -40,7 +41,7 @@
   background-color: var(--blue);
   color: var(--cream);
   width: 90%;
-  padding: 0.5rem;
+  padding: 0.4rem;
   text-align: right;
   margin-bottom: 2rem;
 }

@@ -10,6 +10,7 @@ import './App.css';
 import Demo from './components/Demo';
 import BottomBar from './components/BottomBar';
 import MiningTab from './components/MiningTab/MiningTab';
+import FlightTab from './components/FlightTab/FlightTab';
 
 const App = () => {
   const [hostip, setHostip] = useState('192.168.50.148');
@@ -47,7 +48,7 @@ const App = () => {
         </div>
         <div id="block_main">
         </div>
-        <div id="headline_main">LCARS-SC</div>
+        <div id="headline_main">SCARS-SC</div>
         <div id="endcap_right_main">
           <AppSvg name="icon_endcap_right" height={30} width={45} color="var(--cream)" />
         </div>
@@ -58,19 +59,19 @@ const App = () => {
           <div className="box_left_top">
             <ButtonSquared
               onClick={() => setTab(0)}
-              text="SYSTEMS"
+              text="FLIGHT"
               active={tab === 0}
               color="orange"
             />
-            <ButtonSquared
+            {/* <ButtonSquared
               onClick={() => setTab(2)}
               text="MINING"
               active={tab === 2}
               color="orange"
-            />
+            /> */}
             <ButtonSquared
               onClick={() => setTab(1)}
-              text="NAVIGATION"
+              text="POWER"
               active={tab === 1}
               color="orange"
             />
@@ -83,7 +84,7 @@ const App = () => {
           </div>
           <div className="box_left_bottom">
             <ButtonSquared
-              onClick={() => setTab(4)}
+              onClick={() => conn(hostip, fileid, 'macro:8')}
               text="COMMS"
               active={tab === 4}
               color="cream"
@@ -97,8 +98,9 @@ const App = () => {
           </div>
         </div>
         <div className="box_right">
-          {tab === 0 && <SystemsTab onClick={(macrostr) => conn(hostip, fileid, macrostr)} />}
-          {tab === 1 && <WeaponsTab />}
+          {tab === 0 && <FlightTab onClick={(macrostr) => conn(hostip, fileid, macrostr)} />}
+          {tab === 1 && <SystemsTab onClick={(macrostr) => conn(hostip, fileid, macrostr)} />}
+          {/* {tab === 1 && <WeaponsTab />} */}
           {tab === 2 && <MiningTab />}
           {tab === 3 && (
             <div className="grid">

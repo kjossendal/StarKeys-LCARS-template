@@ -63,12 +63,14 @@ const RadialButtons = ({ buttonData, id, onClick }) => {
         text.setAttributeNS(null, 'x', '-11%')
         text.setAttributeNS(null, 'y', '-65%')
         text.setAttributeNS(null, "transform", "rotate(135)")
+        text.onclick = () => handleFragClick('macro:32')
+        text.innerHTML = 'RESET'
       }
       if (slices === 3) {
         text.setAttributeNS(null, 'x', '-29%')
         text.setAttributeNS(null, 'y', '-63%')
         text.setAttributeNS(null, "transform", "rotate(149)")
-        text.onclick = () => handleFragClick('macro:13')
+        text.onclick = () => handleFragClick('macro:7')
         text.innerHTML = 'RESET'
       }
       text.setAttributeNS(null, "name", "center")

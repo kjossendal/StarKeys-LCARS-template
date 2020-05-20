@@ -1,4 +1,5 @@
 export const conn = (hostip, fileid, macrostr) => {
+  console.log("conn called", hostip, fileid, macrostr)
   if (hostip.trim() === "") {
     alert("Host IP is required. Please provide the value shown when starting the StarKeys-vMFD Server on the gaming PC.");
     return;
@@ -9,7 +10,7 @@ export const conn = (hostip, fileid, macrostr) => {
   }
   if (hostip != null && fileid != null) {
     if ("WebSocket" in window) {
-      //alert("WebSocket is supported by your Browser!");
+      // alert("WebSocket is supported by your Browser!");
 
       // Let us open a web socket
       var ws = new WebSocket("ws://" + hostip + "/echo");
