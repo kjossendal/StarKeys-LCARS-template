@@ -1,0 +1,58 @@
+.quantum_spool_container {
+  position: relative;
+  height: 20rem;
+  width: 20rem;
+  z-index: 10;
+}
+.quantum_spool_border {
+  border-radius: 50%;
+  background: linear-gradient(to left, var(--purple) 50%, var(--blue) 50%);
+  height: 20rem;
+  width: 20rem;
+}
+.quantum_spool_animation {
+  animation: spin 3s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.quantum_spool_text_engage_container {
+  background: linear-gradient(to bottom, var(--green) 50%, var(--red) 50%);
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.quantum_spool_text_engage_half {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem; 
+  height: 50%; 
+  width: 100%; 
+  text-align: center;
+}
+.quantum_spool_text_container {
+  position: absolute;
+  background-color: var(--black);
+  width: 50%;
+  height: 50%;
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

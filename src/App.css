@@ -10,7 +10,6 @@
 
 .content {
   display: flex;
-  /* align-items: center; */
   flex: 1 0 auto;
   height: auto;
 }
@@ -22,13 +21,7 @@
   padding-left: 2rem;
 }
 
-/* .bar_top {
-  position: relative;
-  justify-content: space-between;
-  clip-path: url(#barTopCurve);
-} */
-
-.bar_top_left {
+.inputs_container {
   display: flex;
   align-items: center;
   position: absolute;
@@ -36,7 +29,7 @@
   top: 0.3rem;
   font-size: 2rem;
 }
-.bar_top_left input {
+.inputs_container input {
   border:none;
   padding: 0.5rem;
   margin: 0 8px;
@@ -46,13 +39,6 @@
   font-size: 1.6rem;
   background-color: var(--cream);
 }
-
-/* .bar_bottom {
-  flex-shrink: 0;
-  margin-top: auto;
-  clip-path: url(#barTopCurve);
-  transform: rotateX(180deg); 
-} */
 
 .box_left {
   display: flex;
@@ -98,31 +84,4 @@
 .tab_container {
   width: 100%;
   height: 100%;
-}
-.tab_header_container {
-  position: relative;
-  display: flex;
-  justify-content: flex-end;
-}
-.tab_header {
-  background-color: var(--yellow);
-  padding: 1rem;
-  width: 50%;
-  clip-path: url(#barTopCurve);
-  transform: rotateY(180deg); 
-}
-.tab_header_text {
-  position: absolute;
-  right: 1.7rem;
-  top: 0.4rem;
-  font-size: 1.5rem;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

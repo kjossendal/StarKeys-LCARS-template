@@ -1,0 +1,31 @@
+.corner_container {
+  position: relative;
+  width: 100%;
+}
+.corner_top {
+  background-color: var(--tan);
+  width: 100%;
+  clip-path: url(#barTopCurve);
+}
+.corner_top_reversed {
+  background-color: var(--yellow);
+  width: 100%;
+  clip-path: url(#barTopCurve);
+  transform: rotateY(180deg); 
+}
+.corner_vertical_bar {
+  position: absolute;
+  top: 4.4rem;
+  left: 0;
+  height: 100%;
+  width: 20%;
+  background-color: var(--tan);
+}
+.corner_vertical_bar_reversed {
+  position: absolute;
+  top: 4.4rem;
+  right: 0;
+  height: 100%;
+  width: 20%;
+  background-color: var(--yellow);
+}

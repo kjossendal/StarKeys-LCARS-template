@@ -18,7 +18,7 @@ AppSvg.propTypes = {
   name: PropTypes.string.isRequired,
   color: PropTypes.string,
   width: PropTypes.number,
-  height: PropTypes.number,
+  height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 };
 
 export default AppSvg;

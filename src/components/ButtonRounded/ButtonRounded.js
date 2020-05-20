@@ -10,7 +10,6 @@ const ButtonRounded = ({ onClick, text, color }) => {
       style={{ backgroundColor: `var(--${color})` }}
     >
       <span className="btn_rounded_vertical_stripe"></span>
-      {/* <span className="btn_vertical_stripe"></span> */}
       <span className="btn_rounded_text">{text}</span>
     </div>
   )

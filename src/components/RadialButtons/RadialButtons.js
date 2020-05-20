@@ -16,11 +16,6 @@ const RadialButtons = ({ buttonData, id, onClick }) => {
         toCoordX, toCoordY,
         path, d;
 
-      // var parser = new DOMParser();
-      // var el = parser.parseFromString(`<circle id="center_pie" cx="55" cy="55" r="20" stroke="black" strokeWidth="3" fill="red" />`, "text/html");
-      // var element = el.getElementById("center_pie");
-      // document.getElementById('pie').appendChild(element);
-
       // for (var i = 0; i < slices; i++) {
       buttonData.forEach((btn, i) => {
         // create container

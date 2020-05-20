@@ -1,16 +1,13 @@
 import React, { useState } from 'react';
-
-import { ButtonRounded, ButtonSquared, AppSvg } from './components';
-import SystemsTab from './components/SystemsTab/SystemsTab';
-import WeaponsTab from './components/WeaponsTab/WeaponsTab';
-import CommsTab from './components/CommsTab/CommsTab';
 import { conn } from './client2Server';
-import Buttons from './buttons'
-import './App.css';
-import Demo from './components/Demo';
-import BottomBar from './components/BottomBar';
-import MiningTab from './components/MiningTab/MiningTab';
+
+import { ButtonSquared, AppSvg, BottomBar, Demo } from './components';
 import FlightTab from './components/FlightTab/FlightTab';
+import SystemsTab from './components/SystemsTab/SystemsTab';
+// import WeaponsTab from './components/WeaponsTab/WeaponsTab';
+// import CommsTab from './components/CommsTab/CommsTab';
+// import MiningTab from './components/MiningTab/MiningTab';
+import './App.css';
 
 const App = () => {
   const [hostip, setHostip] = useState('192.168.50.148');
@@ -29,7 +26,7 @@ const App = () => {
       <div id="main_top">
         <div id="elbow_left_top_main">
           <AppSvg name="icon_elbow_left_top" height={90} width={300} color="var(--orange)" />
-          <div className="bar_top_left">
+          <div className="inputs_container">
             <label>Host IP: </label>
             <input
               type="text"
@@ -63,6 +60,12 @@ const App = () => {
               active={tab === 0}
               color="orange"
             />
+            <ButtonSquared
+              onClick={() => setTab(1)}
+              text="POWER"
+              active={tab === 1}
+              color="orange"
+            />
             {/* <ButtonSquared
               onClick={() => setTab(2)}
               text="MINING"
@@ -70,29 +73,23 @@ const App = () => {
               color="orange"
             /> */}
             <ButtonSquared
-              onClick={() => setTab(1)}
-              text="POWER"
-              active={tab === 1}
-              color="orange"
-            />
-            <ButtonSquared
               onClick={() => setTab(3)}
-              text="SHOW ALL"
+              text="DEMO ALL"
               active={tab === 3}
               color="orange"
             />
           </div>
           <div className="box_left_bottom">
             <ButtonSquared
-              onClick={() => conn(hostip, fileid, 'macro:8')}
-              text="COMMS"
-              active={tab === 4}
-              color="cream"
-            />
-            <ButtonSquared
               onClick={() => setTab(5)}
               text="EMOTES"
               active={tab === 5}
+              color="cream"
+            />
+            <ButtonSquared
+              onClick={() => conn(hostip, fileid, 'macro:8')}
+              text="COMMS"
+              active={tab === 4}
               color="cream"
             />
           </div>
@@ -101,26 +98,15 @@ const App = () => {
           {tab === 0 && <FlightTab onClick={(macrostr) => conn(hostip, fileid, macrostr)} />}
           {tab === 1 && <SystemsTab onClick={(macrostr) => conn(hostip, fileid, macrostr)} />}
           {/* {tab === 1 && <WeaponsTab />} */}
-          {tab === 2 && <MiningTab />}
-          {tab === 3 && (
-            <div className="grid">
-              {Object.entries(Buttons).map((btn, idx) => {
-                return <ButtonRounded
-                  key={idx}
-                  onClick={() => conn(hostip, fileid, btn[0])}
-                  text={btn[1].description}
-                  color={idx % 2 === 0 ? 'purple' : 'cream'}
-                />
-              })}
-            </div>
-          )}
-          {tab === 4 && <CommsTab onClick={(macrostr) => conn(hostip, fileid, macrostr)} />}
+          {/* {tab === 2 && <MiningTab onClick={(macrostr) => conn(hostip, fileid, macrostr)} />} */}
+          {tab === 3 && <Demo onClick={(macrostr) => conn(hostip, fileid, macrostr)} />}
+          {/* {tab === 4 && <CommsTab onClick={(macrostr) => conn(hostip, fileid, macrostr)} />} */}
         </div>
       </div>
 
       <div id="main_bottom">
         <div id="elbow_left_bottom_main">
-          <AppSvg name="icon_elbow_left_bottom" height={'100%'} width={300} color="var(--yellow)" />
+          <AppSvg name="icon_elbow_left_bottom" height="100%" width={300} color="var(--yellow)" />
         </div>
         <div id="block_main_bottom">
         </div>
@@ -132,20 +118,6 @@ const App = () => {
 
       <BottomBar onClick={(macrostr) => conn(hostip, fileid, macrostr)} />
 
-      <svg width="0" height="0">
-        <defs>
-          <clipPath id="barTopCurve" clipPathUnits="objectBoundingBox">
-            <path
-              d="M 0,1
-                  C 0 0, 0.07 0, .1 0
-                  L 1,0
-                  L 1,.5
-                  C .2 .5, .2 .5, .20 1
-									Z"
-            />
-          </clipPath>
-        </defs>
-      </svg>
     </div >
   );
 }

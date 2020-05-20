@@ -10,15 +10,11 @@
   opacity: 0.8;
 }
 .btn_squared_text {
-  margin-left: 0.5rem;
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
   font-size: 2.5rem;
 }
 .btn_active {
   margin-right: 1rem;
 }
-
-/* @media only screen and (max-width: 900px) {
-  .btn_squared_text {
-    font-size: 2rem;
-  }
-} */

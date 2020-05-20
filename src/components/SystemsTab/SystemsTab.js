@@ -37,7 +37,6 @@ const SystemsTab = ({ onClick }) => {
             </div>
           </div>
           <div className="systems_tab_top_right">
-            {/* <div className="systems_tab_right_bar"></div> */}
             <div>
               <div className="systems_radial_bar_right">
                 <span className="systems_radial_bar_text">SHIELD ARRAY</span>

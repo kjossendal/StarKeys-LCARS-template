@@ -27,6 +27,10 @@ export default {
     "value": "{F8}",
     "description": "Power Reset"
   },
+  "macro:39": {
+    "value": "{F9}",
+    "description": "Helmet"
+  },
   "macro:8": {
     "value": "{F11}",
     "description": "Comm's"
