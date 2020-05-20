@@ -74,33 +74,33 @@ const SystemsTab = ({ onClick }) => {
         </div>
         <div style={{
           position: 'absolute',
-          bottom: '-3.5rem', left: 0, right: 0,
-          marginTop: '2rem', display: 'flex',
+          bottom: '0rem', left: 0, right: 0,
+          marginTop: '1rem', display: 'flex',
           flexWrap: 'wrap',
           justifyContent: 'center'
         }}>
-          <div style={{ flex: '0 0 calc(33.33% - 2rem)' }}>
+          <div style={{ flex: '0 0 calc(25% - 2rem)' }}>
             <ButtonRounded
               onClick={() => onClick('macro:14')}
               text="POWER"
               color="purple"
             />
           </div>
-          <div style={{ flex: '0 0 calc(33.33% - 2rem)' }}>
+          <div style={{ flex: '0 0 calc(25% - 2rem)' }}>
             <ButtonRounded
               onClick={() => onClick('macro:15')}
               text="ENGINES"
               color="purple"
             />
           </div>
-          <div style={{ flex: '0 0 calc(33.33% - 2rem)' }}>
+          <div style={{ flex: '0 0 calc(25% - 2rem)' }}>
             <ButtonRounded
               onClick={() => onClick('macro:16')}
               text="SHIELDS"
               color="purple"
             />
           </div>
-          <div style={{ flex: '0 0 calc(33.33% - 2rem)' }}>
+          <div style={{ flex: '0 0 calc(25% - 2rem)' }}>
             <ButtonRounded
               onClick={() => onClick('macro:17')}
               text="WEAPONS"
