@@ -130,7 +130,7 @@ html {
 
 #main_top {
   display: grid;
-  grid-template-columns: 300px minmax(100px, 1fr) 5px auto 5px 45px;
+  grid-template-columns: 300px minmax(30px, 1fr) 5px auto 5px 45px;
   grid-template-rows: 90px;
   grid-template-areas: "elbow_left_top_main block_main . headline_main . endcap_right_main";
 }

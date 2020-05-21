@@ -1,12 +1,17 @@
 import React from 'react'
 import './Corner.css';
 
-const Corner = ({ children, reversed, buttons, childContainerStyle }) => {
+const Corner = ({ children, reversed, buttons, childContainerStyle, containerStyles }) => {
   const ChildContainerStyles = {
     ...childContainerStyle
   }
+  const ContainerStyles = {
+    position: 'relative',
+    width: '100%',
+    ...containerStyles
+  }
   return (
-    <div className="corner_container">
+    <div style={ContainerStyles}>
       {reversed ? (
         <>
           <div className="corner_top_reversed" style={{ height: '4rem' }}></div>

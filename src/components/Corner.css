@@ -1,7 +1,3 @@
-.corner_container {
-  position: relative;
-  width: 100%;
-}
 .corner_top {
   background-color: var(--tan);
   width: 100%;
@@ -18,8 +14,8 @@
   display: flex;
   flex-direction: column;
   top: 4.4rem;
+  bottom: 0rem;
   left: 0;
-  height: 83%;
   width: 20%;
 }
 .corner_vertical_bar_fill {
@@ -31,8 +27,8 @@
   display: flex;
   flex-direction: column;
   top: 4.4rem;
+  bottom: 0rem;
   right: 0;
-  height: 83%;
   width: 20%;
 }
 .corner_vertical_bar_reversed_fill {

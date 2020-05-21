@@ -14,6 +14,7 @@ import FullscreenIcon from './FullscreenIcon';
 const App = () => {
   const [hostip, setHostip] = useState('');
   const [fileid, setFileid] = useState('');
+  const [serverCheck, setServerCheck] = useState(true);
   const [tab, setTab] = useState(0);
   const fullscreenContainer = React.useRef();
   const [isFullscreen, setFullscreen] = useFullScreen(fullscreenContainer)
@@ -31,22 +32,24 @@ const App = () => {
   };
 
   useEffect(() => {
-    const findGetParameter = (parameterName) => {
+    const findGetParameter = () => {
       // params are hostip and fileid
-      let result = null;
       let tmp = [];
-      console.log("LOCATION", window.location.search)
       window.location.search
         .substr(1)
         .split("&")
         .forEach(item => {
           tmp = item.split("=");
-          if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+          if (tmp[0] === 'hostip') {
+            setHostip(decodeURIComponent(tmp[1]))
+          } else if (tmp[0] === 'fileid') {
+            setFileid(decodeURIComponent(tmp[1]))
+          } else {
+            setServerCheck(false)
+          }
         });
-      // TODO set results in useState 
-      return result;
     }
-    findGetParameter('hostip')
+    findGetParameter();
   }, [])
 
   return (
@@ -54,7 +57,7 @@ const App = () => {
       <div id="main_top">
         <div id="elbow_left_top_main">
           <AppSvg name="icon_elbow_left_top" height={90} width={300} color="var(--orange)" />
-          <div className="inputs_container">
+          {!serverCheck && (<div className="inputs_container">
             <label>Host IP: </label>
             <input
               type="text"
@@ -69,7 +72,7 @@ const App = () => {
               onChange={e => handleFileIDChange(e)}
               value={fileid}
             />
-          </div>
+          </div>)}
         </div>
         <div id="block_main">
         </div>

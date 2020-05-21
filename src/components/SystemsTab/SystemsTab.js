@@ -2,9 +2,9 @@ import React from 'react';
 import RadialButtons from '../RadialButtons/RadialButtons';
 import ButtonRounded from '../ButtonRounded/ButtonRounded';
 import Corner from '../Corner';
-import './SystemsTab.css';
 import ButtonSquared from '../ButtonSquared/ButtonSquared';
 import { useOrientation } from '../../utils/useOrientation';
+import './SystemsTab.css';
 
 const SystemsTab = ({ onClick }) => {
   const orientation = useOrientation();
@@ -21,7 +21,7 @@ const SystemsTab = ({ onClick }) => {
             <div className="systems_radial_bar_left">
               <span className="systems_radial_bar_text">CAPACITORS</span>
             </div>
-            <div style={{ width: '70%', margin: '0 auto', position: 'relative' }}>
+            <div style={{ width: orientation === 'portrait-primary' ? '60%' : '70%', margin: '0 auto', position: 'relative' }}>
               <span style={{ position: 'absolute', top: '-1rem', color: 'white', left: '50%', transform: 'translateX(-50%)', fontSize: '2rem', zIndex: 200 }}>ENGINES</span>
               <span style={{ position: 'absolute', color: 'white', right: '-4rem', top: '50%', transform: 'translateY(-50%)', fontSize: '2rem' }}>SHIELDS</span>
               <span style={{ position: 'absolute', color: 'white', left: '-4.5rem', top: '50%', transform: 'translateY(-50%)', fontSize: '2rem' }}>WEAPONS</span>
@@ -49,7 +49,7 @@ const SystemsTab = ({ onClick }) => {
             <div className="systems_radial_bar_right">
               <span className="systems_radial_bar_text">SHIELD ARRAY</span>
             </div>
-            <div style={{ width: '70%', margin: '0 auto', position: 'relative' }}>
+            <div style={{ width: orientation === 'portrait-primary' ? '60%' : '70%', margin: '0 auto', position: 'relative' }}>
               <span style={{ position: 'absolute', top: '-1rem', color: 'white', left: '50%', transform: 'translateX(-50%)', fontSize: '2rem', zIndex: 200 }}>FRONT</span>
               <span style={{ position: 'absolute', color: 'white', right: '-2.5rem', top: '50%', transform: 'translateY(-50%)', fontSize: '2rem' }}>RIGHT</span>
               <span style={{ position: 'absolute', color: 'white', left: '-1.5rem', top: '50%', transform: 'translateY(-50%)', fontSize: '2rem' }}>LEFT</span>
@@ -79,80 +79,88 @@ const SystemsTab = ({ onClick }) => {
             </div>
           </div>
         </div>
-        <Corner
-          reversed
-          childContainerStyle={{
-            marginRight: '20%',
-            height: '100%',
-            display: 'flex',
-            alignItems: 'center'
-          }}
-          children={
-            <div style={{ display: 'flex', justifyContent: 'space-evenly', width: '100%', padding: '0 1rem' }}>
+        <div style={{ height: '100%' }}>
+          <Corner
+            reversed
+            containerStyles={{
+              height: '100%'
+            }}
+            childContainerStyle={{
+              marginRight: '20%',
+              display: 'flex',
+              alignItems: 'center'
+            }}
+            children={
+              <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-evenly', width: '100%', padding: '0 1rem' }}>
 
-              <div style={{ flex: '0 0 calc(25% - 2rem)' }}>
-                <ButtonRounded
-                  onClick={() => onClick('macro:14')}
-                  text="POWER"
-                  color="purple"
-                />
+                <div style={{ flex: '0 0 calc(25% - 2rem)' }}>
+                  <ButtonRounded
+                    onClick={() => onClick('macro:14')}
+                    text="POWER"
+                    color="purple"
+                    style={{ minWidth: '15rem', marginBottom: '1rem' }}
+                  />
+                </div>
+                <div style={{ flex: '0 0 calc(25% - 2rem)' }}>
+                  <ButtonRounded
+                    onClick={() => onClick('macro:15')}
+                    text="ENGINES"
+                    color="purple"
+                    style={{ minWidth: '15rem', marginBottom: '1rem' }}
+                  />
+                </div>
+                <div style={{ flex: '0 0 calc(25% - 2rem)' }}>
+                  <ButtonRounded
+                    onClick={() => onClick('macro:16')}
+                    text="SHIELDS"
+                    color="purple"
+                    style={{ minWidth: '15rem', marginBottom: '1rem' }}
+                  />
+                </div>
+                <div style={{ flex: '0 0 calc(25% - 2rem)' }}>
+                  <ButtonRounded
+                    onClick={() => onClick('macro:17')}
+                    text="WEAPONS"
+                    color="purple"
+                    style={{ minWidth: '15rem', marginBottom: '1rem' }}
+                  />
+                </div>
               </div>
-              <div style={{ flex: '0 0 calc(25% - 2rem)' }}>
-                <ButtonRounded
-                  onClick={() => onClick('macro:15')}
-                  text="ENGINES"
-                  color="purple"
-                />
-              </div>
-              <div style={{ flex: '0 0 calc(25% - 2rem)' }}>
-                <ButtonRounded
-                  onClick={() => onClick('macro:16')}
-                  text="SHIELDS"
-                  color="purple"
-                />
-              </div>
-              <div style={{ flex: '0 0 calc(25% - 2rem)' }}>
-                <ButtonRounded
-                  onClick={() => onClick('macro:17')}
-                  text="WEAPONS"
-                  color="purple"
-                />
-              </div>
-            </div>
-          }
-          buttons={[
-            <ButtonSquared
-              key="macro:19"
-              onClick={() => onClick('macro:19')}
-              text="CYCLE CM"
-              color="cream"
-              style={{
-                height: '20%',
-                marginBottom: '0.4rem'
-              }}
-              textStyle={{
-                fontSize: '1.7rem',
-                right: '0.5rem',
-                bottom: '0.5rem',
-              }}
-            />,
-            <ButtonSquared
-              key="macro:18"
-              onClick={() => onClick('macro:18')}
-              text="LAUNCH CM"
-              color="cream"
-              style={{
-                height: '20%',
-                marginBottom: '0.4rem'
-              }}
-              textStyle={{
-                fontSize: '1.7rem',
-                right: '0.5rem',
-                bottom: '0.5rem',
-              }}
-            />
-          ]}
-        />
+            }
+            buttons={[
+              <ButtonSquared
+                key="macro:19"
+                onClick={() => onClick('macro:19')}
+                text="CYCLE CM"
+                color="cream"
+                style={{
+                  height: '20%',
+                  marginBottom: '0.4rem'
+                }}
+                textStyle={{
+                  fontSize: '1.7rem',
+                  right: '0.5rem',
+                  bottom: '0.5rem',
+                }}
+              />,
+              <ButtonSquared
+                key="macro:18"
+                onClick={() => onClick('macro:18')}
+                text="LAUNCH CM"
+                color="cream"
+                style={{
+                  height: '20%',
+                  marginBottom: '0.4rem'
+                }}
+                textStyle={{
+                  fontSize: '1.7rem',
+                  right: '0.5rem',
+                  bottom: '0.5rem',
+                }}
+              />
+            ]}
+          />
+        </div>
       </div>
     </div >
   )
