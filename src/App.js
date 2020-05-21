@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { conn } from './client2Server';
+import { useFullScreen } from './utils/useFullScreen';
 
 import { ButtonSquared, AppSvg, BottomBar, Demo } from './components';
 import FlightTab from './components/FlightTab/FlightTab';
@@ -8,11 +9,15 @@ import SystemsTab from './components/SystemsTab/SystemsTab';
 // import CommsTab from './components/CommsTab/CommsTab';
 // import MiningTab from './components/MiningTab/MiningTab';
 import './App.css';
+import FullscreenIcon from './FullscreenIcon';
 
 const App = () => {
   const [hostip, setHostip] = useState('192.168.50.148');
   const [fileid, setFileid] = useState('1');
   const [tab, setTab] = useState(0);
+  const fullscreenContainer = React.useRef();
+  const [isFullscreen, setFullscreen] = useFullScreen(fullscreenContainer)
+  console.log("IS FS", isFullscreen)
 
   const handleIPChange = e => {
     setHostip(e.target.value)
@@ -22,7 +27,7 @@ const App = () => {
   };
 
   return (
-    <div className="App">
+    <div className="App" ref={fullscreenContainer}>
       <div id="main_top">
         <div id="elbow_left_top_main">
           <AppSvg name="icon_elbow_left_top" height={90} width={300} color="var(--orange)" />
@@ -47,7 +52,10 @@ const App = () => {
         </div>
         <div id="headline_main">SCARS-SC</div>
         <div id="endcap_right_main">
-          <AppSvg name="icon_endcap_right" height={30} width={45} color="var(--cream)" />
+          <div style={{ position: 'relative' }}>
+            <AppSvg name="icon_endcap_right" height={30} width={45} color="var(--cream)" />
+          </div>
+          <FullscreenIcon handleFullscreen={() => isFullscreen ? document.exitFullscreen() : setFullscreen(true)} />
         </div>
       </div>
 

@@ -1,0 +1,32 @@
+.full_screen_icon_container {
+  position: absolute;
+  font-size: 2rem;
+  top: 0.5rem;
+  right: 1.5rem;
+}
+.full_screen_icon {
+  vertical-align: middle;
+  box-sizing: border-box;
+  display: inline-block;
+  border: .1em solid var(--black);
+  width: 1em;
+  height: 1em;
+  position: relative;
+}
+.full_screen_icon:before, .full_screen_icon:after {
+  content: '';
+  background: var(--cream);
+  position: absolute;
+}
+.full_screen_icon:before {
+  width: .333em;
+  height: 1em;
+  left: .233em;
+  top: -.1em;
+}
+.full_screen_icon:after {
+  width: 1em;
+  height: .333em;
+  top: .233em;
+  left: -.1em;
+}

@@ -156,6 +156,7 @@ html {
 }
 
 #endcap_right_main {
+  position: relative;
   grid-area: endcap_right_main;
 }
 
