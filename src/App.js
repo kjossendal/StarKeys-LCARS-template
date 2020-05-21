@@ -12,7 +12,7 @@ import './App.css';
 import FullscreenIcon from './FullscreenIcon';
 
 const App = () => {
-  const [hostip, setHostip] = useState('192.168.50.148');
+  const [hostip, setHostip] = useState('');
   const [fileid, setFileid] = useState('1');
   const [tab, setTab] = useState(0);
   const fullscreenContainer = React.useRef();
