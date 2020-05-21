@@ -1,20 +1,37 @@
 import React from 'react'
 import './Corner.css';
 
-const Corner = ({ children, reversed }) => {
+const Corner = ({ children, reversed, buttons, childContainerStyle }) => {
+  const ChildContainerStyles = {
+    ...childContainerStyle
+  }
   return (
     <div className="corner_container">
       {reversed ? (
         <>
           <div className="corner_top_reversed" style={{ height: '4rem' }}></div>
-          {children}
-          <div className="corner_vertical_bar_reversed"></div>
+          <div style={ChildContainerStyles}>
+            {children}
+          </div>
+          <div className="corner_vertical_bar_reversed">
+            {buttons && buttons.map(element => {
+              return element
+            })}
+            <div className="corner_vertical_bar_reversed_fill"></div>
+          </div>
         </>
       ) : (
           <>
             <div className="corner_top" style={{ height: '4rem' }}></div>
-            {children}
-            <div className="corner_vertical_bar"></div>
+            <div style={ChildContainerStyles}>
+              {children}
+            </div>
+            <div className="corner_vertical_bar">
+              {buttons && buttons.map((element, idx) => {
+                return element
+              })}
+              <div className="corner_vertical_bar_fill"></div>
+            </div>
           </>
         )}
 

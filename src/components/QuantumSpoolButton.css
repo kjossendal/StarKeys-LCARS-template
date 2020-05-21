@@ -1,14 +1,15 @@
 .quantum_spool_container {
-  position: relative;
-  height: 20rem;
-  width: 20rem;
-  z-index: 10;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 .quantum_spool_border {
   border-radius: 50%;
   background: linear-gradient(to left, var(--purple) 50%, var(--blue) 50%);
-  height: 20rem;
-  width: 20rem;
+  height: 100%;
+  width: 100%;
 }
 .quantum_spool_animation {
   animation: spin 3s;
@@ -28,7 +29,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem; 
+  font-size: 3vw; 
   height: 50%; 
   width: 100%; 
   text-align: center;

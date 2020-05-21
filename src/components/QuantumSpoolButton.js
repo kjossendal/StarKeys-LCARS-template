@@ -30,7 +30,7 @@ const QuantumSpoolButton = ({ onClick }) => {
             <span onClick={engage} className="quantum_spool_text_engage_half">ENGAGE</span>
             <span onClick={toggleActive} className="quantum_spool_text_engage_half">CANCEL</span>
           </div>
-        ) : (<span onClick={toggleActive} style={{ fontSize: '2rem', color: 'white' }}>SPOOL</span>)}
+        ) : (<span onClick={toggleActive} style={{ fontSize: '3vw', color: 'white' }}>SPOOL</span>)}
       </div>
     </div>
   )

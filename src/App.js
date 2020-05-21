@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { conn } from './client2Server';
 import { useFullScreen } from './utils/useFullScreen';
 
@@ -13,11 +13,10 @@ import FullscreenIcon from './FullscreenIcon';
 
 const App = () => {
   const [hostip, setHostip] = useState('');
-  const [fileid, setFileid] = useState('1');
+  const [fileid, setFileid] = useState('');
   const [tab, setTab] = useState(0);
   const fullscreenContainer = React.useRef();
   const [isFullscreen, setFullscreen] = useFullScreen(fullscreenContainer)
-  console.log("IS FS", isFullscreen)
 
   const handleIPChange = e => {
     setHostip(e.target.value)
@@ -25,6 +24,30 @@ const App = () => {
   const handleFileIDChange = e => {
     setFileid(e.target.value);
   };
+
+  const SquareButtonStyles = {
+    height: '100%',
+    transition: 'margin-right 0.2s ease-in'
+  };
+
+  useEffect(() => {
+    const findGetParameter = (parameterName) => {
+      // params are hostip and fileid
+      let result = null;
+      let tmp = [];
+      console.log("LOCATION", window.location.search)
+      window.location.search
+        .substr(1)
+        .split("&")
+        .forEach(item => {
+          tmp = item.split("=");
+          if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+        });
+      // TODO set results in useState 
+      return result;
+    }
+    findGetParameter('hostip')
+  }, [])
 
   return (
     <div className="App" ref={fullscreenContainer}>
@@ -50,7 +73,7 @@ const App = () => {
         </div>
         <div id="block_main">
         </div>
-        <div id="headline_main">SCARS-SC</div>
+        <div id="headline_main">S-CARS</div>
         <div id="endcap_right_main">
           <div style={{ position: 'relative' }}>
             <AppSvg name="icon_endcap_right" height={30} width={45} color="var(--cream)" />
@@ -67,52 +90,55 @@ const App = () => {
               text="FLIGHT"
               active={tab === 0}
               color="orange"
+              style={SquareButtonStyles}
             />
             <ButtonSquared
               onClick={() => setTab(1)}
               text="POWER"
               active={tab === 1}
               color="orange"
+              style={SquareButtonStyles}
             />
             {/* <ButtonSquared
               onClick={() => setTab(2)}
               text="MINING"
               active={tab === 2}
               color="orange"
+              style={SquareButtonStyles}
             /> */}
             <ButtonSquared
               onClick={() => setTab(3)}
               text="DEMO ALL"
               active={tab === 3}
               color="orange"
+              style={SquareButtonStyles}
             />
           </div>
           <div className="box_left_bottom">
-            <ButtonSquared
+            {/* <ButtonSquared
               onClick={() => setTab(5)}
               text="EMOTES"
               active={tab === 5}
               color="cream"
-            />
+              style={SquareButtonStyles}
+            /> */}
             <ButtonSquared
               onClick={() => conn(hostip, fileid, 'macro:8')}
               text="COMMS"
               active={tab === 4}
               color="cream"
+              style={SquareButtonStyles}
             />
           </div>
         </div>
         <div className="box_right">
           {tab === 0 && <FlightTab onClick={(macrostr) => conn(hostip, fileid, macrostr)} />}
           {tab === 1 && <SystemsTab onClick={(macrostr) => conn(hostip, fileid, macrostr)} />}
-          {/* {tab === 1 && <WeaponsTab />} */}
-          {/* {tab === 2 && <MiningTab onClick={(macrostr) => conn(hostip, fileid, macrostr)} />} */}
           {tab === 3 && <Demo onClick={(macrostr) => conn(hostip, fileid, macrostr)} />}
-          {/* {tab === 4 && <CommsTab onClick={(macrostr) => conn(hostip, fileid, macrostr)} />} */}
         </div>
       </div>
 
-      <div id="main_bottom">
+      {/* <div id="main_bottom">
         <div id="elbow_left_bottom_main">
           <AppSvg name="icon_elbow_left_bottom" height="100%" width={300} color="var(--yellow)" />
         </div>
@@ -122,7 +148,7 @@ const App = () => {
           <AppSvg name="icon_endcap_right" height={30} width={45} color="var(--yellow)" />
         </div>
 
-      </div>
+      </div> */}
 
       <BottomBar onClick={(macrostr) => conn(hostip, fileid, macrostr)} />
 

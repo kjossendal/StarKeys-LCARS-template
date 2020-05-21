@@ -1,19 +1,5 @@
-.btn_squared {
-  position: relative;
-  display: flex;
-  align-items: center;
-  padding: 0.5rem;
-  height: 100%;
-  transition: margin-right 0.2s ease-in;
-}
 .btn_squared:active {
   opacity: 0.8;
-}
-.btn_squared_text {
-  position: absolute;
-  bottom: 1rem;
-  right: 1rem;
-  font-size: 2.5rem;
 }
 .btn_active {
   margin-right: 1rem;

@@ -2,83 +2,187 @@ import React from 'react'
 import ButtonRounded from '../ButtonRounded/ButtonRounded'
 import QuantumSpoolButton from '../QuantumSpoolButton'
 import Corner from '../Corner'
+import ButtonSquared from '../ButtonSquared/ButtonSquared'
+import { useOrientation } from '../../utils/useOrientation'
 
 const FlightTab = ({ onClick }) => {
+  const orientation = useOrientation();
+
+  const OrientationStyles = {
+    display: 'flex',
+    height: '100%',
+    flexWrap: orientation === 'portrait-primary' ? 'wrap' : 'nowrap'
+  };
+
   return (
     <div className="tab_container">
-      <div className="grid">
-        <ButtonRounded
-          onClick={() => onClick('macro:10')}
-          text="GIMBLE MODE"
-          color="purple"
+      <div style={OrientationStyles}>
+        <Corner
+          reversed
+          childContainerStyle={{
+            marginRight: '20%',
+            padding: '2rem'
+          }}
+          children={
+            <div style={{ position: 'relative', height: 0, paddingTop: '100%' }}>
+              <QuantumSpoolButton onClick={onClick} />
+            </div>
+          }
+          buttons={[
+            <ButtonSquared
+              key="macro:20"
+              onClick={() => onClick('macro:20')}
+              text="VTOL"
+              color="blue"
+              style={{
+                height: '20%',
+                marginBottom: '0.4rem'
+              }}
+              textStyle={{
+                fontSize: '1.7rem',
+                right: '0.5rem',
+                bottom: '0.5rem',
+              }}
+            />,
+            <ButtonSquared
+              key="macro:23"
+              onClick={() => onClick('macro:23')}
+              text="CRUISE"
+              color="purple"
+              style={{
+                height: '20%',
+                marginBottom: '0.4rem'
+              }}
+              textStyle={{
+                fontSize: '1.7rem',
+                right: '0.5rem',
+                bottom: '0.5rem',
+              }}
+            />,
+            <ButtonSquared
+              key="macro:24"
+              onClick={() => onClick('macro:24')}
+              text="DECOUPLE"
+              color="purple"
+              style={{
+                height: '20%',
+                marginBottom: '0.4rem'
+              }}
+              textStyle={{
+                fontSize: '1.7rem',
+                right: '0.5rem',
+                bottom: '0.5rem',
+              }}
+            />
+          ]}
         />
-        <ButtonRounded
-          onClick={() => onClick('macro:27')}
-          text="LANDING GEAR"
-          color="purple"
-        />
-        <ButtonRounded
-          onClick={() => onClick('macro:28')}
-          text="AUTO LAND"
-          color="purple"
-        />
-        <ButtonRounded
-          onClick={() => onClick('macro:11')}
-          text="LIGHTS"
-          color="purple"
-        />
-        <ButtonRounded
-          onClick={() => onClick('macro:20')}
-          text="VTOL"
-          color="purple"
-        />
-        <ButtonRounded
-          onClick={() => onClick('macro:23')}
-          text="CRUISE"
-          color="purple"
-        />
-        <ButtonRounded
-          onClick={() => onClick('macro:24')}
-          text="DECOUPLE"
-          color="purple"
-        />
-        <ButtonRounded
-          onClick={() => onClick('macro:38')}
-          text="SELF DESTRUCT"
-          color="red"
-        />
-      </div>
-      <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '2rem', height: '60%' }}>
-        <Corner reversed children={
-          <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <QuantumSpoolButton onClick={onClick} />
-          </div>
-        } />
+
         <div style={{ width: '1rem' }}></div>
-        <Corner children={
-          <div style={{ height: '100%', marginLeft: '20%', display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly', padding: '1rem' }}>
-            <ButtonRounded
-              onClick={() => onClick('macro:9')}
-              text="SCAN MODE"
-              color="purple"
+
+        <Corner
+          childContainerStyle={{
+            marginLeft: '20%',
+            padding: '2rem',
+            height: '100%'
+          }}
+          children={
+            <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '80%' }}>
+              <div>
+                <ButtonRounded
+                  onClick={() => onClick('macro:9')}
+                  text="SCAN MODE"
+                  color="purple"
+                />
+                <div style={{ height: '1rem' }}></div>
+                <ButtonRounded
+                  onClick={() => onClick('macro:37')}
+                  text="PING"
+                  color="purple"
+                />
+                <div style={{ height: '1rem' }}></div>
+                <ButtonRounded
+                  onClick={() => onClick('macro:21')}
+                  text="DOORS open/close"
+                  color="purple"
+                />
+                <div style={{ height: '1rem' }}></div>
+                <ButtonRounded
+                  onClick={() => onClick('macro:22')}
+                  text="DOORS lock/unlock"
+                  color="purple"
+                />
+                <div style={{ height: '1rem' }}></div>
+                <ButtonRounded
+                  onClick={() => onClick('macro:10')}
+                  text="GIMBLE MODE"
+                  color="purple"
+                />
+              </div>
+              <div>
+                <ButtonRounded
+                  onClick={() => onClick('macro:13')}
+                  text="EJECT"
+                  color="red"
+                  textStyle={{ color: 'var(--cream)' }}
+                />
+                <div style={{ height: '1rem' }}></div>
+                <ButtonRounded
+                  onClick={() => onClick('macro:38')}
+                  text="SELF DESTRUCT"
+                  color="red"
+                  textStyle={{ color: 'var(--cream)' }}
+                />
+              </div>
+            </div>
+          }
+          buttons={[
+            <ButtonSquared
+              key="macro:11"
+              onClick={() => onClick('macro:11')}
+              text="LIGHTS"
+              color="orange"
+              style={{
+                height: '20%',
+                marginBottom: '0.4rem'
+              }}
+              textStyle={{
+                fontSize: '1.7rem',
+                right: '0.5rem',
+                bottom: '0.5rem',
+              }}
+            />,
+            <ButtonSquared
+              key="macro:27"
+              onClick={() => onClick('macro:27')}
+              text="LANDING GEAR"
+              color="cream"
+              style={{
+                height: '20%',
+                marginBottom: '0.4rem'
+              }}
+              textStyle={{
+                fontSize: '1.7rem',
+                right: '0.5rem',
+                bottom: '0.5rem',
+              }}
+            />,
+            <ButtonSquared
+              key="macro:28"
+              onClick={() => onClick('macro:28')}
+              text="AUTO LAND"
+              color="cream"
+              style={{
+                height: '20%',
+                marginBottom: '0.4rem'
+              }}
+              textStyle={{
+                fontSize: '1.7rem',
+                right: '0.5rem',
+                bottom: '0.5rem',
+              }}
             />
-            <ButtonRounded
-              onClick={() => onClick('macro:37')}
-              text="PING"
-              color="purple"
-            />
-            <ButtonRounded
-              onClick={() => onClick('macro:21')}
-              text="DOORS open/close"
-              color="purple"
-            />
-            <ButtonRounded
-              onClick={() => onClick('macro:22')}
-              text="DOORS lock/unlock"
-              color="purple"
-            />
-          </div>
-        } />
+          ]}
+        />
       </div>
     </div>
   )

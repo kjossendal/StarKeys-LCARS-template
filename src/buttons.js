@@ -40,7 +40,7 @@ export default {
     "description": "Scanner"
   },
   "macro:10": {
-    "value": "R", // alos gimble mode toggle in flight mode
+    "value": "R", // also gimble mode toggle in flight mode
     "description": "Flight Ready"
   },
   "macro:11": {
