@@ -83,10 +83,10 @@ const FlightTab = ({ onClick }) => {
           childContainerStyle={{
             marginLeft: '20%',
             padding: '2rem',
-            height: '100%'
+            height: '80%'
           }}
           children={
-            <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '80%' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '100%' }}>
               <div>
                 <ButtonRounded
                   onClick={() => onClick('macro:9')}
