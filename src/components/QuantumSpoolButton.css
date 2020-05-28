@@ -25,7 +25,17 @@
   align-items: center;
   justify-content: center;
 }
+.quantum_spool_text {
+  font-size: 5vw; 
+  color: var(--cream); 
+  height: 100%; 
+  width: 100%; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+}
 .quantum_spool_text_engage_half {
+  color: var(--cream);
   display: flex;
   align-items: center;
   justify-content: center;

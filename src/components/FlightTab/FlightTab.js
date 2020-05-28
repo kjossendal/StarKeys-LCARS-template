@@ -93,41 +93,43 @@ const FlightTab = ({ onClick }) => {
                   text="SCAN MODE"
                   color="purple"
                 />
-                <div style={{ height: '1rem' }}></div>
+                <div style={{ height: '1.5rem' }}></div>
                 <ButtonRounded
                   onClick={() => onClick('macro:37')}
                   text="PING"
                   color="purple"
                 />
-                <div style={{ height: '1rem' }}></div>
+                <div style={{ height: '1.5rem' }}></div>
                 <ButtonRounded
                   onClick={() => onClick('macro:21')}
                   text="DOORS open/close"
                   color="purple"
                 />
-                <div style={{ height: '1rem' }}></div>
+                <div style={{ height: '1.5rem' }}></div>
                 <ButtonRounded
                   onClick={() => onClick('macro:22')}
                   text="DOORS lock/unlock"
                   color="purple"
                 />
-                <div style={{ height: '1rem' }}></div>
+                <div style={{ height: '1.5rem' }}></div>
                 <ButtonRounded
-                  onClick={() => onClick('macro:10')}
-                  text="GIMBLE MODE"
+                  onClick={() => onClick('macro:40')}
+                  text="GIMBAL MODE"
                   color="purple"
                 />
               </div>
               <div>
                 <ButtonRounded
                   onClick={() => onClick('macro:13')}
+                  delay={true}
                   text="EJECT"
                   color="red"
                   textStyle={{ color: 'var(--cream)' }}
                 />
-                <div style={{ height: '1rem' }}></div>
+                <div style={{ height: '1.5rem' }}></div>
                 <ButtonRounded
                   onClick={() => onClick('macro:38')}
+                  delay={true}
                   text="SELF DESTRUCT"
                   color="red"
                   textStyle={{ color: 'var(--cream)' }}

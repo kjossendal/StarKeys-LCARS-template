@@ -34,6 +34,7 @@ html {
   --cream: rgba(248, 243, 199, 1);
   --blue: rgba(78, 109, 251, 1);
   --red: rgba(134, 29, 29, 1);
+  --red-lighten: rgba(180, 38, 38, 0.5);
   --green: rgba(29, 134, 29, 1);
 }
 

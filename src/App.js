@@ -76,7 +76,7 @@ const App = () => {
         </div>
         <div id="block_main">
         </div>
-        <div id="headline_main">S-CARS</div>
+        <div id="headline_main">SCARS</div>
         <div id="endcap_right_main">
           <div style={{ position: 'relative' }}>
             <AppSvg name="icon_endcap_right" height={30} width={45} color="var(--cream)" />
@@ -109,26 +109,24 @@ const App = () => {
               color="orange"
               style={SquareButtonStyles}
             /> */}
-            <ButtonSquared
+            {/* <ButtonSquared
               onClick={() => setTab(3)}
               text="DEMO ALL"
               active={tab === 3}
               color="orange"
               style={SquareButtonStyles}
-            />
+            /> */}
           </div>
           <div className="box_left_bottom">
-            {/* <ButtonSquared
-              onClick={() => setTab(5)}
-              text="EMOTES"
-              active={tab === 5}
+            <ButtonSquared
+              onClick={() => conn(hostip, fileid, 'macro:2')}
+              text="STARMAP"
               color="cream"
               style={SquareButtonStyles}
-            /> */}
+            />
             <ButtonSquared
               onClick={() => conn(hostip, fileid, 'macro:8')}
               text="COMMS"
-              active={tab === 4}
               color="cream"
               style={SquareButtonStyles}
             />

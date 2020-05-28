@@ -9,3 +9,12 @@
   background-color: var(--black);
   width: 10px;
 }
+.fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-color: var(--red-lighten);
+  border-radius: 50px;
+  height: 100%; 
+}
