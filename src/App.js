@@ -5,11 +5,10 @@ import { useFullScreen } from './utils/useFullScreen';
 import { ButtonSquared, AppSvg, BottomBar, Demo } from './components';
 import FlightTab from './components/FlightTab/FlightTab';
 import SystemsTab from './components/SystemsTab/SystemsTab';
-// import WeaponsTab from './components/WeaponsTab/WeaponsTab';
 // import CommsTab from './components/CommsTab/CommsTab';
 // import MiningTab from './components/MiningTab/MiningTab';
-import './App.css';
 import FullscreenIcon from './FullscreenIcon';
+import './App.css';
 
 const App = () => {
   const [hostip, setHostip] = useState('');
