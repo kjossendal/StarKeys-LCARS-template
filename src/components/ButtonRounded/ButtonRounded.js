@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useEffect, useCallback, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { useInterval } from '../../utils/useInterval';
 import './ButtonRounded.css';
@@ -7,6 +7,7 @@ const ButtonRounded = ({ onClick, text, color, style, textStyle, delay = false }
   const [fillWidth, setFillWidth] = useState(0);
   const [start, setStart] = useState(false);
   let timerRef = useRef(null);
+  let buttonEl = useRef(null);
 
   const ContainerStyles = {
     overflow: 'hidden',
@@ -28,13 +29,13 @@ const ButtonRounded = ({ onClick, text, color, style, textStyle, delay = false }
     setFillWidth(fillWidth + 0.33)
   }, start ? 10 : null)
 
-  const startDelay = () => {
+  const startDelay = useCallback(() => {
     setStart(true);
     timerRef.current = setTimeout(() => {
       cancelDelay();
       onClick();
     }, 3100)
-  };
+  }, [onClick]);
 
   const cancelDelay = () => {
     setStart(false);
@@ -42,27 +43,40 @@ const ButtonRounded = ({ onClick, text, color, style, textStyle, delay = false }
     setFillWidth(0);
   };
 
-  const handleClick = () => {
+  const handleClick = useCallback((event) => {
+    event.preventDefault();
     if (delay) {
       startDelay();
     } else {
       onClick();
     }
-  };
+  }, [delay, onClick, startDelay]);
+
+  useEffect(() => {
+    // NOTE the ontouchstart event needs to be attached to the dom in this way in order for 
+    // the preventDefault func to work properly.
+    // preventDefault is needed to use touch and mouse events on the same element.
+    // See https://github.com/facebook/react/issues/9809
+    buttonEl.current.ontouchstart = handleClick;
+  }, [handleClick]);
 
   return (
     <div
+      ref={buttonEl}
       className="btn_rounded"
-      onTouchStart={(e) => {
+      // onTouchStart={(e) => {
+      //   e.preventDefault();
+      //   e.nativeEvent.preventDefault();
+      //   handleClick(true);
+      // }}
+      onTouchEndCapture={(e) => {
         e.preventDefault();
-        e.stopPropagation();
-        handleClick();
+        console.log("onTouchEndCapture")
+        cancelDelay();
       }}
-      onTouchEndCapture={cancelDelay}
+      onTouchEnd={e => e.preventDefault()}
       onMouseDown={(e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        handleClick()
+        handleClick(e);
       }}
       onMouseUp={cancelDelay}
       style={ContainerStyles}

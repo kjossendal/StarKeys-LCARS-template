@@ -1,5 +1,5 @@
 export const conn = (hostip, fileid, macrostr) => {
-  console.log("conn called", hostip, fileid, macrostr)
+  // console.log("conn called", hostip, fileid, macrostr)
   if (hostip.trim() === "") {
     alert("Host IP is required. Please provide the value shown when starting the StarKeys-vMFD Server on the gaming PC.");
     return;
