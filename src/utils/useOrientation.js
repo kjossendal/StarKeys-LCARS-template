@@ -1,7 +1,12 @@
 import { useEffect, useState } from 'react';
 
-const getOrientation = () =>
-  window.screen.orientation.type
+const getOrientation = () => {
+  if (window.screen.orientation) {
+    return window.screen.orientation.type
+  } else {
+    return window.screen.height > window.screen.width ? 'portrait-primary' : 'landscape-primary';
+  }
+}
 
 export const useOrientation = () => {
   const [orientation, setOrientation] =

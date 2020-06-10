@@ -27,7 +27,7 @@ const App = () => {
 
   const SquareButtonStyles = {
     height: '100%',
-    transition: 'margin-right 0.2s ease-in'
+    transition: 'margin-right 0.2s ease-in',
   };
 
   useEffect(() => {
@@ -55,7 +55,8 @@ const App = () => {
     <div className="App" ref={fullscreenContainer}>
       <div id="main_top">
         <div id="elbow_left_top_main">
-          <AppSvg name="icon_elbow_left_top" height={90} width={300} color="var(--orange)" />
+          <div id="elbow_left_top_main--top"></div>
+          <div id="elbow_left_top_main--bottom"></div>
           {!serverCheck && (<div className="inputs_container">
             <label>Host IP: </label>
             <input
@@ -76,10 +77,7 @@ const App = () => {
         <div id="block_main">
         </div>
         <div id="headline_main">SCARS</div>
-        <div id="endcap_right_main">
-          <div style={{ position: 'relative' }}>
-            <AppSvg name="icon_endcap_right" height={30} width={45} color="var(--cream)" />
-          </div>
+        <div id="endcap_right_main" >
           <FullscreenIcon handleFullscreen={() => isFullscreen ? document.exitFullscreen() : setFullscreen(true)} />
         </div>
       </div>
@@ -93,6 +91,9 @@ const App = () => {
               active={tab === 0}
               color="orange"
               style={SquareButtonStyles}
+              textStyle={{
+                fontSize: '2.9vmax'
+              }}
             />
             <ButtonSquared
               onClick={() => setTab(1)}
@@ -100,6 +101,9 @@ const App = () => {
               active={tab === 1}
               color="orange"
               style={SquareButtonStyles}
+              textStyle={{
+                fontSize: '2.9vmax'
+              }}
             />
             {/* <ButtonSquared
               onClick={() => setTab(2)}
@@ -122,12 +126,18 @@ const App = () => {
               text="STARMAP"
               color="cream"
               style={SquareButtonStyles}
+              textStyle={{
+                fontSize: '2.9vmax'
+              }}
             />
             <ButtonSquared
               onClick={() => conn(hostip, fileid, 'macro:8')}
               text="COMMS"
               color="cream"
               style={SquareButtonStyles}
+              textStyle={{
+                fontSize: '2.9vmax'
+              }}
             />
           </div>
         </div>
@@ -137,18 +147,6 @@ const App = () => {
           {tab === 3 && <Demo onClick={(macrostr) => conn(hostip, fileid, macrostr)} />}
         </div>
       </div>
-
-      {/* <div id="main_bottom">
-        <div id="elbow_left_bottom_main">
-          <AppSvg name="icon_elbow_left_bottom" height="100%" width={300} color="var(--yellow)" />
-        </div>
-        <div id="block_main_bottom">
-        </div>
-        <div id="endcap_right_main_bottom">
-          <AppSvg name="icon_endcap_right" height={30} width={45} color="var(--yellow)" />
-        </div>
-
-      </div> */}
 
       <BottomBar onClick={(macrostr) => conn(hostip, fileid, macrostr)} />
 

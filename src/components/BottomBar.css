@@ -3,8 +3,8 @@
   align-items: center;
   width: 100%;
   justify-content: space-evenly;
-  margin-top: 1rem;
-  font-size: 3rem;
+  font-size: 3vmax;
+  height: 5%;
 }
 .bottom_bar_button {
   display: flex;
@@ -20,4 +20,12 @@
 }
 .bottom_bar_button:active {
   opacity: 0.8;
+}
+
+.endcap_right {
+  border-bottom-right-radius: 50px;
+  border-top-right-radius: 50px;
+  height: 100%;
+  width: 5%;
+  background: var(--cream);
 }

@@ -14,7 +14,7 @@ const ButtonSquared = ({ onClick, text, color, active, style, textStyle }) => {
     position: 'absolute',
     bottom: '1rem',
     right: '1rem',
-    fontSize: '2.5rem',
+    fontSize: '1.9vmax',
     ...textStyle
   }
   return (

@@ -19,6 +19,9 @@ const FlightTab = ({ onClick }) => {
       <div style={OrientationStyles}>
         <Corner
           reversed
+          containerStyles={{
+            height: orientation === 'portrait-primary' ? '50%' : '100%',
+          }}
           childContainerStyle={{
             marginRight: '20%',
             padding: '2rem'
@@ -39,7 +42,7 @@ const FlightTab = ({ onClick }) => {
                 marginBottom: '0.4rem'
               }}
               textStyle={{
-                fontSize: '1.7rem',
+                fontSize: '2vmax',
                 right: '0.5rem',
                 bottom: '0.5rem',
               }}
@@ -54,7 +57,7 @@ const FlightTab = ({ onClick }) => {
                 marginBottom: '0.4rem'
               }}
               textStyle={{
-                fontSize: '1.7rem',
+                fontSize: '2vmax',
                 right: '0.5rem',
                 bottom: '0.5rem',
               }}
@@ -69,7 +72,7 @@ const FlightTab = ({ onClick }) => {
                 marginBottom: '0.4rem'
               }}
               textStyle={{
-                fontSize: '1.7rem',
+                fontSize: '2vmax',
                 right: '0.5rem',
                 bottom: '0.5rem',
               }}
@@ -80,6 +83,9 @@ const FlightTab = ({ onClick }) => {
         <div style={{ width: '1rem' }}></div>
 
         <Corner
+          containerStyles={{
+            height: orientation === 'portrait-primary' ? '50%' : '100%',
+          }}
           childContainerStyle={{
             marginLeft: '20%',
             padding: '2rem',
@@ -117,6 +123,12 @@ const FlightTab = ({ onClick }) => {
                   text="GIMBAL MODE"
                   color="purple"
                 />
+                <div style={{ height: '1.5rem' }}></div>
+                <ButtonRounded
+                  onClick={() => onClick('macro:12')}
+                  text="EXIT SEAT"
+                  color="purple"
+                />
               </div>
               <div>
                 <ButtonRounded
@@ -148,7 +160,7 @@ const FlightTab = ({ onClick }) => {
                 marginBottom: '0.4rem'
               }}
               textStyle={{
-                fontSize: '1.7rem',
+                fontSize: '2vmax',
                 right: '0.5rem',
                 bottom: '0.5rem',
               }}
@@ -163,7 +175,7 @@ const FlightTab = ({ onClick }) => {
                 marginBottom: '0.4rem'
               }}
               textStyle={{
-                fontSize: '1.7rem',
+                fontSize: '2vmax',
                 right: '0.5rem',
                 bottom: '0.5rem',
               }}
@@ -178,7 +190,7 @@ const FlightTab = ({ onClick }) => {
                 marginBottom: '0.4rem'
               }}
               textStyle={{
-                fontSize: '1.7rem',
+                fontSize: '2vmax',
                 right: '0.5rem',
                 bottom: '0.5rem',
               }}

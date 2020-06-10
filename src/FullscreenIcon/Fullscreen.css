@@ -1,8 +1,5 @@
 .full_screen_icon_container {
-  position: absolute;
   font-size: 2rem;
-  top: 0.5rem;
-  right: 1.5rem;
 }
 .full_screen_icon {
   vertical-align: middle;

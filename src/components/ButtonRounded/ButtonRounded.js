@@ -21,7 +21,7 @@ const ButtonRounded = ({ onClick, text, color, style, textStyle, delay = false }
   }
   const TextStyles = {
     marginLeft: '40px',
-    fontSize: '2.5rem',
+    fontSize: '2.4vmax',
     ...textStyle
   }
 

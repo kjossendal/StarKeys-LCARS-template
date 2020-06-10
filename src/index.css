@@ -21,8 +21,9 @@ html, body, #root {
 
 html {
   background-color: #282c34;
-  /* defines what 1 rem is. 1rem == 10px; */
-  font-size: 62.5%;
+  /* defines what 1 rem is. */
+  /* font-size: 62.5%; */
+  font-size: 1vmin;
 }
 
 :root {
@@ -130,35 +131,66 @@ html {
 /*Main top section*/
 
 #main_top {
-  display: grid;
-  grid-template-columns: 300px minmax(30px, 1fr) 5px auto 5px 45px;
-  grid-template-rows: 90px;
-  grid-template-areas: "elbow_left_top_main block_main . headline_main . endcap_right_main";
+  width: 100%;
+  height: 5%;
+  display: flex;
 }
 
 #elbow_left_top_main {
-  grid-area: elbow_left_top_main;
+  /* grid-area: elbow_left_top_main; */
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+}
+#elbow_left_top_main--top {
+  background-color: #ff9900;
+  border-top-left-radius: 50px;
+  height: 50%;
+}
+#elbow_left_top_main--bottom {
+  position: relative;
+  background-color: #ff9900;
+  height: 50%;
+  width: 15vw;
+}
+#elbow_left_top_main--bottom::before {
+  content: "";
+  position: absolute;
+  background-color: transparent;
+  right: -75px;
+  top: 0;
+  height: 100%;
+  bottom: 0;
+  width: 75px;
+  border-top-left-radius: 50px;
+  box-shadow: -40px 0px 0 0 #ff9900;
 }
 
 #block_main {
-  grid-area: block_main;
   background-color: #ff9900;
-  height: 30px;
+  height: 50%;
+  flex-grow: 1;
 }
 
 #headline_main {
-  grid-area: headline_main;
   color: #ff9900;
-  font-size: 3.5rem;
+  font-size: 3vh;
   font-family: 'Oswald', sans-serif;
   text-transform: uppercase;
   position: relative;
   top: -4px;
+  height: 50%;
 }
 
 #endcap_right_main {
-  position: relative;
-  grid-area: endcap_right_main;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom-right-radius: 50px;
+  border-top-right-radius: 50px;
+  height: 50%;
+  width: 5%;
+  background: var(--cream);
 }
 
 /*Main center*/
