@@ -24,7 +24,7 @@ const FlightTab = ({ onClick }) => {
           }}
           childContainerStyle={{
             marginRight: '20%',
-            padding: '2rem'
+            padding: `0 ${orientation === 'portrait-primary' ? '6.5rem' : '2rem'}`
           }}
           children={
             <div style={{ position: 'relative', height: 0, paddingTop: '100%' }}>
@@ -163,6 +163,7 @@ const FlightTab = ({ onClick }) => {
                 fontSize: '2vmax',
                 right: '0.5rem',
                 bottom: '0.5rem',
+                textAlign: 'right'
               }}
             />,
             <ButtonSquared
@@ -178,6 +179,7 @@ const FlightTab = ({ onClick }) => {
                 fontSize: '2vmax',
                 right: '0.5rem',
                 bottom: '0.5rem',
+                textAlign: 'right'
               }}
             />,
             <ButtonSquared
@@ -193,6 +195,7 @@ const FlightTab = ({ onClick }) => {
                 fontSize: '2vmax',
                 right: '0.5rem',
                 bottom: '0.5rem',
+                textAlign: 'right'
               }}
             />
           ]}
