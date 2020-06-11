@@ -1,0 +1,186 @@
+{
+  "fileid": {
+    "value": "1",
+    "description": "This is for StarCitizen 3.9 alpha"
+  },
+  "DefaultKeyHoldTimer": {
+    "value": "1",
+    "description": "Default Key Hold Timer"
+  },
+  "DefaultKeyDelayTimer": {
+    "value": "20",
+    "description": "Default Key Delay Timer"
+  },
+  "macro1": {
+    "value": "{F1}",
+    "description": "Mobi Glass"
+  },
+  "macro2": {
+    "value": "{F2}",
+    "description": "Star Map"
+  },
+  "macro3": {
+    "value": "{F4}",
+    "description": "Cycle Cam View"
+  },
+  "macro4": {
+    "value": "{F5}",
+    "description": "Power to Engines"
+  },
+  "macro5": {
+    "value": "{F6}",
+    "description": "Power to shields"
+  },
+  "macro6": {
+    "value": "{F7}",
+    "description": "Power to Weapons"
+  },
+  "macro7": {
+    "value": "{F8}",
+    "description": "Power Reset"
+  },
+  "macro39": {
+    "value": "{F9}",
+    "description": "Helmet"
+  },
+  "macro8": {
+    "value": "{F11}",
+    "description": "Comm's"
+  },
+  "macro9": {
+    "value": "{TAB}",
+    "description": "Scanning Mode"
+  },
+  "macro10": {
+    "value": "R",
+    "description": "Flight Ready"
+  },
+  "macro11": {
+    "value": "T",
+    "description": "Lights"
+  },
+  "macro12": {
+    "value": "Y",
+    "description": "Exit Seat"
+  },
+  "macro13": {
+    "value": "+4Y",
+    "description": "Eject"
+  },
+  "macro14": {
+    "value": "U",
+    "description": "Power on/off"
+  },
+  "macro15": {
+    "value": "I",
+    "description": "Engines on/off"
+  },
+  "macro16": {
+    "value": "O",
+    "description": "Shields on/off"
+  },
+  "macro17": {
+    "value": "P",
+    "description": "Weapons on/off"
+  },
+  "macro18": {
+    "value": "G",
+    "description": "Launch CM"
+  },
+  "macro19": {
+    "value": "H",
+    "description": "Cycle CM"
+  },
+  "macro20": {
+    "value": "J",
+    "description": "VTOL"
+  },
+  "macro21": {
+    "value": "K",
+    "description": "Doors open/close"
+  },
+  "macro22": {
+    "value": "L",
+    "description": "Doors lock/unlock"
+  },
+  "macro23": {
+    "value": "C",
+    "description": "Cruise Control"
+  },
+  "macro24": {
+    "value": "V",
+    "description": "Decoupled Mode"
+  },
+  "macro25": {
+    "value": "B",
+    "description": "Quantum Spool"
+  },
+  "macro26": {
+    "value": "+3B",
+    "description": "Quantum Engage"
+  },
+  "macro27": {
+    "value": "N",
+    "description": "Landing Gear"
+  },
+  "macro28": {
+    "value": "+2N",
+    "description": "Auto Land"
+  },
+  "macro29": {
+    "value": "M",
+    "description": "Mining Mode"
+  },
+  "macro30": {
+    "value": "{NUMPAD2}",
+    "description": "Shields Rear"
+  },
+  "macro31": {
+    "value": "{NUMPAD4}",
+    "description": "Shields Left"
+  },
+  "macro32": {
+    "value": "{NUMPAD5}",
+    "description": "Shields Balance"
+  },
+  "macro33": {
+    "value": "{NUMPAD6}",
+    "description": "Shields Right"
+  },
+  "macro34": {
+    "value": "{NUMPAD7}",
+    "description": "Shields Top"
+  },
+  "macro35": {
+    "value": "{NUMPAD8}",
+    "description": "Shields Front"
+  },
+  "macro36": {
+    "value": "{NUMPAD9}",
+    "description": "Shields Bottom"
+  },
+  "macro37": {
+    "value": "+5{RMOUSEBUTTON}",
+    "description": "Ping"
+  },
+  "macro38": {
+    "value": "+5{BACK}",
+    "description": "Self Destruct"
+  },
+  "macro40": {
+    "value": "R",
+    "description": "Gimbal Mode"
+  },
+  "macro99": {
+    "value": "[{LWIN}R]NOTEPAD{RETURN}HELLO",
+    "description": "Notepad"
+  },
+  "run1": {
+    "value": "c:\\Users\\someone\\somthing.bat",
+    "description": "Run this bat file"
+  },
+  "run2": {
+    "value": "runtest.bat",
+    "description": "Run this bat file 2"
+  }
+}

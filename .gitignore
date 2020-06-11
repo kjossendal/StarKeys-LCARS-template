@@ -10,7 +10,8 @@
 
 # production
 /build
-/build_BAK
+scars-sc.zip
+scars-sc
 
 # misc
 .DS_Store
