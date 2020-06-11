@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { conn } from './client2Server';
 import { useFullScreen } from './utils/useFullScreen';
 
-import { ButtonSquared, AppSvg, BottomBar, Demo } from './components';
+import { ButtonSquared, BottomBar, Demo } from './components';
 import FlightTab from './components/FlightTab/FlightTab';
 import SystemsTab from './components/SystemsTab/SystemsTab';
 // import CommsTab from './components/CommsTab/CommsTab';
